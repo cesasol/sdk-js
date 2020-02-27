@@ -1,9 +1,20 @@
 import { FilterOperator } from "./Filter";
+
+export type MetadataParams =
+  | 'type'
+  | 'collection'
+  | 'table'
+  | 'result_count'
+  | 'total_count'
+  | 'filter_count'
+  | 'status'
+  | 'page'
+
 /**
  * @internal
  */
 interface IQueryParameters {
-  meta: object; // TODO: fix type
+  meta: MetadataParams[] | MetadataParams | '*';
   fields: string | string[];
   limit: number;
   offset: number;
